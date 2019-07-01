@@ -1,0 +1,34 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Mobile",
+        "price": "20$",
+        "avatar": "http://i.dawn.com/primary/2015/09/56045f62109eb.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Watch",
+        "price": "15$",
+        "avatar": "https://images-na.ssl-images-amazon.com/images/I/71QHGTKiwAL._UX569_.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Bag",
+        "price": "13$",
+        "avatar": "https://images-na.ssl-images-amazon.com/images/I/81q%2BqHJMi1L._SL1500_.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Glasses",
+        "price": "15$",
+        "avatar": "https://images-na.ssl-images-amazon.com/images/I/61YvFQqTAuL._UL1500_.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Keyboard",
+        "price": "9$",
+        "avatar": "https://images-na.ssl-images-amazon.com/images/I/81shebPwe0L._SL1500_.jpg"
+      }
+    ]
+  }
