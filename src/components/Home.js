@@ -32,7 +32,7 @@ class Home extends Component{
 
     componentDidMount(){
         // axios.get('http://localhost:3000/products')
-        axios.get('https://a6501802.ngrok.io/products')
+        axios.get('http://backend.dev.everrecruit.indusvalleylabs.com/test/api')
         .then(response=>{
             this.setState({
                 products:response.data
