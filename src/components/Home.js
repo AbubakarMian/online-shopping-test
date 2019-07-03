@@ -43,12 +43,30 @@ class Home extends Component{
         })
     }
 
-    add_to_cart(product,b){
+    add_to_cart(product,index){
+
+        console.log('index r : ',index);
+        
+        if(product.hasOwnProperty('quantity')){
+            product.quantity = ++product.quantity;
+        }
+        else{
+            product.quantity = 1;
+        }
+
+        let products = this.state.products;
+        console.log('udoate ',products);
+        products[index] = product;
+        this.setState({
+            products:products
+        });
+
+        console.log(product);
         this.props.dispatchUpdateCart(product);
     }
 
     render(){
-        const {products} = this.state;
+        // const products = this.state.products;
         
         return(        
             <div>
@@ -58,25 +76,24 @@ class Home extends Component{
                 
                 <div style={this.divCart}>
                     {
-                        products.length?
-                        products.map(product=>
+                        this.state.products.length?
+                        this.state.products.map((product,index)=>
                             <div key={product.id}>
                             <ProductCard  col= '4 sm'
                             product_name={product.name} 
                             product_price={product.price}
                             product_avatar={product.avatar}
+                            product_quantity={product.quantity}
                             button={<Button 
                                 variant="contained" 
                                 color="primary"
-                                onClick={this.add_to_cart.bind(this,product)}
+                                onClick={this.add_to_cart.bind(this,product,index)}
                                 >
                                     Add to Cart
                                     </Button>}
-                            />
-                             
+                            />                             
                             </div>
-                        )
-                        
+                        )                        
                         :null
                     }
                 </div>

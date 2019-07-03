@@ -21,9 +21,22 @@ class Signup extends Component{
     }
     loginSignupHandler(){
 
+        let state_name = this.state.userName;
+        
+        if(state_name==''){
+            return;
+        }
+        
+        let state_email = this.state.userEmail;
+        let emailValid = state_email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+
+        if(!emailValid){
+            return;
+        }
+
         this.props.dispatcherUserSignin({            
-            userName:this.state.userName,
-            userEmail:this.state.userEmail,
+            userName:state_name,
+            userEmail:state_email,
             userLoggedin:true
         });
         

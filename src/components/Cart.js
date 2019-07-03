@@ -76,6 +76,7 @@ class Cart extends Component{
                             product_name={product.name} 
                             product_price={product.price}
                             product_avatar={product.avatar}
+                            product_quantity={product.quantity}
                             button={<Button 
                                 variant="contained" 
                                 color="primary"
