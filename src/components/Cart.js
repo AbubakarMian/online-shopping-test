@@ -57,13 +57,7 @@ class Cart extends Component{
         let index = 0;
         return(        
             <div>
-                            <div style={this.heading}>
-                            <div style={this.divUser}>
-                                <h3>Name : {this.props.User.userName}</h3>
-                                <h3>Email : {this.props.User.userEmail}</h3>
-                            </div>
-                            <h1>Cart</h1>
-                            </div>
+                            
             <div style={this.heading}>
                 <Button 
                     variant="contained" 
@@ -74,8 +68,7 @@ class Cart extends Component{
                     </Button>
             </div>
                 <div style={this.divCart}>
-                    {
-                        
+                    {                        
                         products.length?
                         products.map((product)=>
                             <div key={product.id}>

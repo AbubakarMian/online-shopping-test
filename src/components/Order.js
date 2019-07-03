@@ -21,8 +21,6 @@ class Order extends Component{
 
         orders_body.push(<div style={this.heading}>
         <div style={this.divUser}>
-        <h3>Name : {this.props.User.userName}</h3>
-        <h3>Email : {this.props.User.userEmail}</h3>
         </div>
         <h1>Orders</h1>
         </div>);
@@ -33,7 +31,7 @@ class Order extends Component{
 
                 for (let item_index = 0; item_index < user_orders.length; item_index++) {
                     
-                    orders_body.push(<div key={user_orders[item_index].id}>
+                    orders_body.push(<div key={item_index}>
                         <ProductCard  col= '4 sm'
                         product_name={user_orders[item_index].name} 
                         product_price={user_orders[item_index].price}

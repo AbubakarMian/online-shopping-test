@@ -53,10 +53,6 @@ class Home extends Component{
         return(        
             <div>
                 <div style={this.heading}>
-                <div style={this.divUser}>
-                    <h3>Name : {this.props.User.userName}</h3>
-                    <h3>Email : {this.props.User.userEmail}</h3>
-                </div>
                 <h1>Product List</h1>
                 </div>
                 

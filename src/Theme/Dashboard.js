@@ -13,8 +13,8 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
-import {Provider} from 'react-redux'
-import store from '../store'
+// import {Provider} from 'react-redux'
+// import store from '../store'
 import History from '../History/History';
 import {
     Router,
@@ -25,6 +25,8 @@ import Home from '../components/Home';
 import Signup from '../components/Signup';
 import Cart from '../components/Cart';
 import Order from '../components/Order';
+import {connect} from 'react-redux';
+import PrivateRoute from './PrivateRoute';
 
 
 const drawerWidth = 240;
@@ -108,7 +110,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Dashboard(props) {
+
+ function Dashboard(props) {
+  
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -123,28 +127,33 @@ export default function Dashboard(props) {
     {
       path: "/",
       main: () => <Home />,
-      exact: true
+      exact: true,
+      authRequired:true,
+      redirectMain: ()=><Signup history={History}/>,
     },
     {
       path: "/signup",
-      main: () => <Signup history={History} />,
-      exact: true
+      main: () => <Signup history={History}/>,
+      exact: true,
+      authRequired:false
     },
     {
       path: "/cart",
       main: () => <Cart />,
-      exact: true
+      exact: true,
+      authRequired:true,
+      redirectMain: ()=><Signup history={History}/>,
     },
     {
       path: "/order",
       main: () => <Order />,
-      exact: true
+      exact: true,
+      authRequired:true,
+      redirectMain: ()=><Signup history={History}/>,
     }
   ];
-
+  
   return (
-    <Provider store={store} >
-      <Router  history={History}>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -163,7 +172,7 @@ export default function Dashboard(props) {
           </Typography>
           <IconButton color="inherit">
             <Badge color="secondary">
-              
+                {props.LoginUser.userEmail}
             </Badge>
           </IconButton>
         </Toolbar>
@@ -189,17 +198,25 @@ export default function Dashboard(props) {
         <div className={classes.appBarSpacer} />
         {routes.map((route, index) => (
                 <Switch key={index}>
-                  <Route
+                  <PrivateRoute
                     key={index}
                     path={route.path}
                     exact={route.exact}
                     component={route.main}
+                    authRequired={route.authRequired}
                   />
                 </Switch>
               ))}
       </main>
     </div>
-    </Router>
-    </Provider>
   );
 }
+
+
+function getLoginUser(state){
+  return ({
+      LoginUser:state.authReducer
+  })
+}
+
+export default connect(getLoginUser)(Dashboard);

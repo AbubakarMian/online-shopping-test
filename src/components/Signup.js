@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import loginAction from '../store/action/action'
-// import History from '../History/History';
+import loginAction from '../store/action/action';
 
 class Signup extends Component{
 
@@ -10,9 +9,16 @@ class Signup extends Component{
         this.state={
             userName:'',
             userEmail:''
+        }  
+        if(this.props.LoginUser.userLoggedin){
+            this.props.dispatcherUserSignin({            
+                userName:'',
+                userEmail:'',
+                userLoggedin:false
+            });
         }
+        
     }
-
     loginSignupHandler(){
 
         this.props.dispatcherUserSignin({            
@@ -20,10 +26,8 @@ class Signup extends Component{
             userEmail:this.state.userEmail,
             userLoggedin:true
         });
-        console.log(this.props)
+        
         this.props.history.push('/');
-        // this.props.History.push('/');
-
     }
     usernameHandler(event){
         this.setState({
@@ -62,7 +66,7 @@ class Signup extends Component{
     render(){
         return(
             <div>
-                <h1>{this.props.LoginUser.userName}</h1>
+                {/* <h1>{this.props.LoginUser.userName}</h1> */}
                 <div style={this.inputDiv}>
                     <input style={this.inputClass} placeholder='User Name' type='text' onChange={this.usernameHandler.bind(this)} /><br/>
                     <input style={this.inputClass} placeholder='User Email' type='email' onChange={this.userEmailHandler.bind(this)} /><br/>
@@ -87,4 +91,5 @@ function updateLoginUser(dispatch){
     });
 }
 export default connect(getLoginUser,updateLoginUser)(Signup);
+
 
