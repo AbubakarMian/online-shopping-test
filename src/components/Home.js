@@ -3,7 +3,7 @@ import axios from 'axios';
 import ProductCard from './ProductCard';
 import Button from '@material-ui/core/Button';
 import {connect} from 'react-redux';
-import {addCart} from '../store/action/action'
+import {updateCart} from '../store/action/action'
 
 class Home extends Component{
 
@@ -31,7 +31,6 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        // axios.get('http://localhost:3000/products')
         axios.get('http://backend.dev.everrecruit.indusvalleylabs.com/test/api')
         .then(response=>{
             this.setState({
@@ -44,8 +43,6 @@ class Home extends Component{
     }
 
     add_to_cart(product,index){
-
-        console.log('index r : ',index);
         
         if(product.hasOwnProperty('quantity')){
             product.quantity = ++product.quantity;
@@ -55,18 +52,22 @@ class Home extends Component{
         }
 
         let products = this.state.products;
-        console.log('udoate ',products);
         products[index] = product;
         this.setState({
             products:products
         });
+        let cart_products = [];
 
-        console.log(product);
-        this.props.dispatchUpdateCart(product);
+        cart_products = products.filter(function (product){
+
+            return (product.hasOwnProperty('quantity') && (product.quantity>0)) ?  product : null;
+
+        });
+
+        this.props.dispatchUpdateCart(cart_products);
     }
 
     render(){
-        // const products = this.state.products;
         
         return(        
             <div>
@@ -111,9 +112,12 @@ function getCart(state){
 
 function setCart(dispatch){
     return ({
-       dispatchUpdateCart:(cart)=>{
-         dispatch(addCart(cart))
-       }
+    //    dispatchUpdateCart:(cart)=>{
+    //      dispatch(addCart(cart))
+    //    },
+       dispatchUpdateCart:(update_cart)=>{
+        dispatch(updateCart(update_cart))
+      }
     })
 }
 

@@ -13,12 +13,8 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
-// import {Provider} from 'react-redux'
-// import store from '../store'
 import History from '../History/History';
 import {
-    Router,
-    Route, 
     Switch
 } from 'react-router-dom'
 import Home from '../components/Home';
@@ -126,7 +122,7 @@ const useStyles = makeStyles(theme => ({
     
     {
       path: "/",
-      main: () => <Home />,
+      main: () => <Home  history={History}/>,
       exact: true,
       authRequired:true,
       redirectMain: ()=><Signup history={History}/>,
@@ -139,14 +135,14 @@ const useStyles = makeStyles(theme => ({
     },
     {
       path: "/cart",
-      main: () => <Cart />,
+      main: () => <Cart  history={History}/>,
       exact: true,
       authRequired:true,
       redirectMain: ()=><Signup history={History}/>,
     },
     {
       path: "/order",
-      main: () => <Order />,
+      main: () => <Order  history={History} />,
       exact: true,
       authRequired:true,
       redirectMain: ()=><Signup history={History}/>,

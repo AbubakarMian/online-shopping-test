@@ -23,7 +23,7 @@ class Signup extends Component{
 
         let state_name = this.state.userName;
         
-        if(state_name==''){
+        if(state_name===''){
             return;
         }
         

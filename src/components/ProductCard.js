@@ -58,7 +58,6 @@ const customStyles = {
     class ProductCard extends Component{
         
         render() {
-            console.log('quantity uuu',this.props.product_quantity);
             return (
             <Card style={customStyles.card}>
                 <CardHeader
@@ -70,7 +69,6 @@ const customStyles = {
                         <div style={customStyles.quantity}>{this.props.product_quantity}</div>
                         :null
                 }
-                {/* <div style={customStyles.quantity}>5</div> */}
                 <Typography style={customStyles.price} variant="body2" color="textSecondary" component="h1">
                         {this.props.product_price}
                 </Typography>

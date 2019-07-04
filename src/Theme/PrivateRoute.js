@@ -1,17 +1,12 @@
 import React,{Component} from 'react'
 import {
-    Router,
     Route, 
-    Switch,
     Redirect
 } from 'react-router-dom'
 import {connect} from 'react-redux';
 
 class PrivateRoute extends Component{
 
-    constructor(props){
-        super(props)
-    }
 
     render(){
         let route = null;

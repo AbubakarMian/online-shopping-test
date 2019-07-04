@@ -35,6 +35,8 @@ class Cart extends Component{
         this.setState({
             cart:this.props.UserCart.cart_items
         })
+        
+        this.props.history.push('/order');
     }
     order_now={
         float:'right',        
