@@ -18,7 +18,7 @@ import {
 } from 'react-router-dom'
 import {connect} from 'react-redux';
 import PrivateRoute from './PrivateRoute';
-import Routes from './Routes';
+import Routes from '../Routes';
 
 
 const drawerWidth = 240;
