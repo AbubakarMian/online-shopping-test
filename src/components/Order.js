@@ -1,25 +1,16 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import ProductCard from './ProductCard';
+import '../styles/home.css'
 
 class Order extends Component{
-    
-    divUser= {
-        marginTop: '-22px',
-        float: 'right',
-        lineHeight: '15px'
-    }
-
-    heading={
-        marginBottom: '55px'
-    }
 
     render(){
 
         let orders_arr = this.props.Orders.orders;
         let orders_body = [];
 
-        orders_body.push(<h1 style={this.heading} key='heading'>Orders</h1>);
+        orders_body.push(<h1 className='heading' key='heading'>Orders</h1>);
 
             for (let index = 0; index < orders_arr.length; index++) {
                 

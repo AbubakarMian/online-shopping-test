@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import {connect} from 'react-redux';
 import {updateCart} from '../store/action/action';
 import History from '../History/History';
+import '../styles/home.css';
 
 class Home extends Component{
 
@@ -15,20 +16,6 @@ class Home extends Component{
             products:[],
             cart:this.props.UserCart
         }
-    }
-
-    divCart= {
-        padding:"0px 50px",
-        marginLeft: "80px",
-    }
-    divUser= {
-        marginTop: '-22px',
-        float: 'right',
-        lineHeight: '15px'
-    }
-
-    heading={
-        marginBottom: '55px'
     }
 
     componentDidMount(){
@@ -76,11 +63,11 @@ class Home extends Component{
         
         return(        
             <div>
-                <div style={this.heading}>
+                <div className='heading'>
                 <h1>Product List</h1>
                 </div>
                 
-                <div style={this.divCart}>
+                <div className='divCart'>
                     {
                         this.state.products.length?
                         this.state.products.map((product,index)=>

@@ -84,7 +84,6 @@ class Cart extends Component{
                             button={<Button 
                                 variant="contained" 
                                 color="primary"
-                                // onClick={this.remove_from_cart.bind(this,product.id)}
                                 onClick={this.remove_from_cart.bind(this,index++)}
                                 >Remove
                                 </Button>}

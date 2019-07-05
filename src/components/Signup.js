@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import loginAction from '../store/action/action';
 import History from '../History/History';
+import '../styles/home.css';
+import '../styles/signup.css';
 
 class Signup extends Component{
 
@@ -55,36 +57,16 @@ class Signup extends Component{
         });
     }
 
-    inputClass={
-        lineHeight: '39px',
-        marginBottom: '25px',
-        textAlign: 'center',
-        width: '31%',
-          
-    }
-
-    inputDiv={        
-        marginTop: '135px'
-    }
-    btn={
-        
-        lineHeight: '39px',
-        width: '31%',
-        color: 'white',
-        backgroundColor: '#1e2ab3',
-        borderRadius: '17px 17px 17px 17px',
-        border:'0px',
-        outline: '0px',
-    }
+    
 
     render(){
         return(
-            <div>
+            <div className='heading-signup'>
                 {/* <h1>{this.props.LoginUser.userName}</h1> */}
                 <div style={this.inputDiv}>
-                    <input style={this.inputClass} placeholder='User Name' type='text' onChange={this.usernameHandler.bind(this)} /><br/>
-                    <input style={this.inputClass} placeholder='User Email' type='email' onChange={this.userEmailHandler.bind(this)} /><br/>
-                    <button style={this.btn} onClick={this.loginSignupHandler.bind(this)}>Signup</button>
+                    <input className='inputClass' placeholder='User Name' type='text' onChange={this.usernameHandler.bind(this)} /><br/>
+                    <input className='inputClass' placeholder='User Email' type='email' onChange={this.userEmailHandler.bind(this)} /><br/>
+                    <button className='btn' onClick={this.loginSignupHandler.bind(this)}>Signup</button>
                 </div>
             </div>
         )

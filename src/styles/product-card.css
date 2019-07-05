@@ -1,0 +1,48 @@
+.cardImg{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 225px;
+    max-width: 95%;
+    margin: auto
+}
+
+.card{
+    width:30%;
+    float:left;
+    margin:8px;
+    position:relative;   
+}
+
+.card span{
+    word-break: break-all;
+}
+
+media{
+  height: 100,
+}
+
+avatar{
+  background-color: red;
+}
+
+.price{
+    font-size:23px;
+    margin-bottom:13px;
+}
+
+.quantity{
+    background-color:#d80000;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 1px 1px;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 17, 0.2) 1px 1px 5px;
+}
