@@ -16,12 +16,9 @@ import { mainListItems, secondaryListItems } from './listItems';
 import {
     Switch
 } from 'react-router-dom'
-import Home from '../components/Home';
-import Signup from '../components/Signup';
-import Cart from '../components/Cart';
-import Order from '../components/Order';
 import {connect} from 'react-redux';
 import PrivateRoute from './PrivateRoute';
+import Routes from './Routes';
 
 
 const drawerWidth = 240;
@@ -117,36 +114,7 @@ const useStyles = makeStyles(theme => ({
     setOpen(false);
   };
 
-  const routes = [
-    
-    {
-      path: "/",
-      main: () => <Home/>,
-      exact: true,
-      authRequired:false,
-      redirectMain: ()=><Signup />,
-    },
-    {
-      path: "/signup",
-      main: () => <Signup />,
-      exact: true,
-      authRequired:false
-    },
-    {
-      path: "/cart",
-      main: () => <Cart />,
-      exact: true,
-      authRequired:true,
-      redirectMain: ()=><Signup />,
-    },
-    {
-      path: "/order",
-      main: () => <Order />,
-      exact: true,
-      authRequired:true,
-      redirectMain: ()=><Signup />,
-    }
-  ];
+  const routes = Routes;
   
   return (
     <div className={classes.root}>
