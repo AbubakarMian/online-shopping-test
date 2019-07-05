@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {removeCart,addOrder,updateCart} from '../store/action/action'
 import ProductCard from './ProductCard';
 import Button from '@material-ui/core/Button';
+import History from '../History/History';
+
 
 class Cart extends Component{
 
@@ -34,9 +36,9 @@ class Cart extends Component{
         this.props.dispatchEmptyCart();
         this.setState({
             cart:this.props.UserCart.cart_items
-        })
+        })        
         
-        this.props.history.push('/order');
+        History.push('/order');
     }
     order_now={
         float:'right',        

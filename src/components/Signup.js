@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import loginAction from '../store/action/action';
+import History from '../History/History';
 
 class Signup extends Component{
 
@@ -40,7 +41,7 @@ class Signup extends Component{
             userLoggedin:true
         });
         
-        this.props.history.push('/');
+        History.push('/');
     }
     usernameHandler(event){
         this.setState({

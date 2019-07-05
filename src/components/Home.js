@@ -3,7 +3,8 @@ import axios from 'axios';
 import ProductCard from './ProductCard';
 import Button from '@material-ui/core/Button';
 import {connect} from 'react-redux';
-import {updateCart} from '../store/action/action'
+import {updateCart} from '../store/action/action';
+import History from '../History/History';
 
 class Home extends Component{
 
@@ -43,6 +44,10 @@ class Home extends Component{
     }
 
     add_to_cart(product,index){
+
+        if(!this.props.User.userLoggedin){            
+            History.push('/signup');
+        }
         
         if(product.hasOwnProperty('quantity')){
             product.quantity = ++product.quantity;
