@@ -11,8 +11,7 @@ const Routes = [
       path: "/",
       main: () => <Home/>,
       exact: true,
-      authRequired:false,
-      redirectMain: ()=><Signup />,
+      authRequired:false
     },
     {
       path: "/signup",
@@ -24,15 +23,13 @@ const Routes = [
       path: "/cart",
       main: () => <Cart />,
       exact: true,
-      authRequired:true,
-      redirectMain: ()=><Signup />,
+      authRequired:true
     },
     {
       path: "/order",
       main: () => <Order />,
       exact: true,
-      authRequired:true,
-      redirectMain: ()=><Signup />,
+      authRequired:true
     }
   ]
 
