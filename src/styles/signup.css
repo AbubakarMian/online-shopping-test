@@ -1,25 +1,24 @@
-.inputClass{
-    line-height: 39px;
-    margin-bottom: 25px;
-    text-align: center;
-    width: 31%;
-      
+.inputClass {
+  line-height: 39px;
+  margin-bottom: 25px;
+  text-align: center;
+  width: 31%;
 }
 
-.inputDiv{        
-    margin-top: 135px
+.inputDiv {
+  margin-top: 135px;
 }
 
-.btn{    
-    line-height: 39px;
-    width: 31%;
-    color: white;
-    background-color: #1e2ab3;
-    border-radius: 17px 17px 17px 17px;
-    border: 0px;
-    outline: 0px;
+.btn {
+  line-height: 39px;
+  width: 31%;
+  color: white;
+  background-color: #1e2ab3;
+  border-radius: 17px 17px 17px 17px;
+  border: 0px;
+  outline: 0px;
 }
 
-.heading-signup{
-    margin-top: 159px;
+.heading-signup {
+  margin-top: 159px;
 }

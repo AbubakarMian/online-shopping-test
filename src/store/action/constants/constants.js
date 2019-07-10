@@ -1,9 +1,9 @@
 const actionTypes = {
-    LOGINUSER:'LOGINUSER',
-    UPDATECART:'UPDATECART',
-    ADDCART:'ADDCART',
-    REMOVECART:'REMOVECART',
-    ADDORDER:'ADDORDER'
-}
+  LOGINUSER: "LOGINUSER",
+  UPDATECART: "UPDATECART",
+  ADDCART: "ADDCART",
+  REMOVECART: "REMOVECART",
+  ADDORDER: "ADDORDER"
+};
 
-export default actionTypes
+export default actionTypes;

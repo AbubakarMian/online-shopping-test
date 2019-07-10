@@ -1,32 +1,25 @@
-import actionTypes from '../action/constants/constants';
-const USER_CART={
-    cart_items:[
-        
-    ]
-}
+import actionTypes from "../action/constants/constants";
+const USER_CART = {
+  cart_items: []
+};
 
-export default (state=USER_CART,action)=>{
-    
-    switch(action.type){
-        case(actionTypes.ADDCART):
-            state.cart_items.push(action.payload);
-        break;
-        case(actionTypes.REMOVECART):
-        
-            state.cart_items = state.cart_items.filter(
+export default (state = USER_CART, action) => {
+  const cart_state = { ...state };
+  switch (action.type) {
+    case actionTypes.ADDCART:
+      cart_state.cart_items.push(action.payload);
+      break;
+    case actionTypes.REMOVECART:
+      cart_state.cart_items = cart_state.cart_items.filter(
+        (value, index) => index !== action.payload
+      );
+      break;
 
-                function(value, index, arr){
-                    return index !== action.payload;            
-                }
-            );        
-        break;
-        
-        case(actionTypes.UPDATECART):
-            state.cart_items = action.payload;
-            break;
-            default:
-                return state;
-    }
-    return state;
-}
-
+    case actionTypes.UPDATECART:
+      cart_state.cart_items = action.payload;
+      break;
+    default:
+      return cart_state;
+  }
+  return cart_state;
+};
